@@ -24,10 +24,12 @@ class OrdersController < ApplicationController
     @order = Order.new(order_params)
 
     if @order.save
-      flash[:success] = t('flash.order.success')
+      OrderMailer.with(order: @order).new_order_email.deliver_later
+      
+      flash[:success] = t('Thank you for your order! we will get back to you soon')
       redirect_to orders_url
     else
-      flash.now[:error] = t('flash.order.error_html')
+      flash.now[:error] = t('Your order form had some errors. Please check the form and resubmit.')
       render :new
     end
   end
