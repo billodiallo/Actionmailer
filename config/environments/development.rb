@@ -64,12 +64,30 @@ Rails.application.configure do
   # Raises error for missing translations.
   # config.i18n.raise_on_missing_translations = true
 
+  ########SETUP MAILER BELOW
+# host = 'localhost:3000'
+# config.action_mailer.default_url_options = { :host => 'localhost:3000', protocol: 'http' }
+######SMTP TO TEST
+# config.action_mailer.delivery_method = :test
+# host = 'http://localhost:3000/rails/mailers/order_mailer/new_order_email' #replace with your own url
+# config.action_mailer.default_url_options = { host: host }
+
+# SMTP settings for gmail
+# config.action_mailer.smtp_settings = {
+#   :address              => "smtp.gmail.com",
+#   :port                 => 587,
+#   :user_name            => 'billodiallonet@gmail.com',
+#   :password             => 12345678899,
+#   :authentication       => "plain",
+#   :enable_starttls_auto => true
+
+
   # Annotate rendered view with file names.
   # config.action_view.annotate_rendered_view_with_filenames = true
 
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
-  config.file_watcher = ActiveSupport::EventedFileUpdateChecker
+  # config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
   # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true
